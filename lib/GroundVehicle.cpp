@@ -1,6 +1,6 @@
 #include "GroundVehicle.h"
 
-GroundVehicle::GroundVehicle(std::string n, double s, double mt, double* rt, int rc)
+GroundVehicle::GroundVehicle(const std::string& n, double s, double mt, double* rt, int rc)
     : Vehicle(n, s, GROUND), moveTime(mt), restCount(rc)
 {
     restTimes = new double[restCount];
@@ -14,6 +14,9 @@ GroundVehicle::~GroundVehicle() {
 }
 
 double GroundVehicle::getRaceTime(double distance) const {
+    if (speed == 0){
+        return 0;
+    }
     double time{};
     double traveled{};
     int restIndex{};

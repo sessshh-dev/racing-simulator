@@ -5,14 +5,14 @@
 class GroundVehicle : public Vehicle {
 private:
     double moveTime;
-    double* restTime;
+    double* restTimes;
     int restCount;
 
 public:
-    GroundVehicle(std::string n, double s, double mt, double* rt, int rc);
+    GroundVehicle(const std::string& n, double s, double mt, double* rt, int rc);
     ~GroundVehicle();
 
-    double getRaceTime(double distanse) const override;
+    double getRaceTime(double distance) const override;
 
 };
 

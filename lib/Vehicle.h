@@ -4,7 +4,7 @@
 
 enum VehicleType{
     GROUND, AIR
-},
+};
 
 class Vehicle {
 protected:
@@ -13,13 +13,14 @@ protected:
     VehicleType type;
 
 public:
+    Vehicle() = delete;
     Vehicle(std::string n, double s, VehicleType t) : name(n), speed(s), type(t)
     {}
     virtual ~Vehicle() = default;
 
-    std::string getName() const { return name; }
+    const std::string& getName() const { return name; }
     VehicleType getType() const { return type; }
-    virtual double getRace(double dictance) const = 0;
+    virtual double getRaceTime(double dictance) const = 0;
 };
 
 #endif
